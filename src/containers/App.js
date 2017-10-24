@@ -24,13 +24,15 @@ export default class App extends Component {
 
   /* Add an item to the todo list */
   addTodo = text => {
-    const { todos, nextId } = this.state;
-    todos.push({
-      id: nextId,
-      completed: false,
-      text: text
-    });
-    this.setState({ todos, nextId: nextId + 1 });
+    if (text.length > 0) {
+      const { todos, nextId } = this.state;
+      todos.push({
+        id: nextId,
+        completed: false,
+        text: text
+      });
+      this.setState({ todos, nextId: nextId + 1 });
+    }
   }
 
   /* Remove an item from the todo list */
