@@ -3,7 +3,7 @@ import TodoItem from './TodoItem';
 
 class MainSection extends Component {
   render() {
-    const { todos } = this.props;
+    const { todos, toggleCompletedTodo } = this.props;
 
     return (
       <section className="main">
@@ -12,6 +12,7 @@ class MainSection extends Component {
             return (
               <TodoItem
                 todo={todo}
+                toggleCompletedTodo={toggleCompletedTodo}
               />
             );
           })}

@@ -33,7 +33,18 @@ export default class App extends Component {
 
   /* Toggle completed state of an item in the todo list */
   toggleCompletedTodo = id => {
-
+    const todos = this.state.todos.map(todo => {
+      if (todo.id === id) {
+        return {
+          id: todo.id,
+          text: todo.text,
+          completed: !todo.completed
+        };
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ todos });
   }
 
   /* Render the todo App */
@@ -42,7 +53,9 @@ export default class App extends Component {
       <div className="todoapp">
         <h1>todos</h1>
         <TodoTextInput />
-        <MainSection todos={this.state.todos}/>
+        <MainSection
+          todos={this.state.todos}
+          toggleCompletedTodo={this.toggleCompletedTodo} />
       </div>
     );
   }

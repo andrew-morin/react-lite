@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class TodoItem extends Component {
   render() {
-    const { todo } = this.props;
+    const { todo, toggleCompletedTodo } = this.props;
 
     return (
       <li className={todo.completed ? 'completed' : undefined}>
@@ -11,6 +11,7 @@ class TodoItem extends Component {
             className="toggle"
             type="checkbox"
             checked={todo.completed}
+            onChange={() => toggleCompletedTodo(todo.id)}
           />
           <label>{todo.text}</label>
           <button className="destroy" />
