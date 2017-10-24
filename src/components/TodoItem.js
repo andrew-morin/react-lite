@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 
 class TodoItem extends Component {
   render() {
+    const { todo } = this.props;
+
     return (
-      <li className="completed">
+      <li className={todo.completed ? 'completed' : undefined}>
         <div className="view">
           <input
             className="toggle"
             type="checkbox"
-            checked={true}
+            checked={todo.completed}
           />
-          <label>Attend React Workshop</label>
+          <label>{todo.text}</label>
           <button className="destroy" />
         </div>
       </li>

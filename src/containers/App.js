@@ -28,7 +28,18 @@ export default class App extends Component {
       <div className="todoapp">
         <h1>todos</h1>
         <TodoTextInput />
-        <MainSection />
+        <MainSection todos={[
+          {
+            id: 0,
+            text: 'Attend React Workshop',
+            completed: true,
+          },
+          {
+            id: 1,
+            text: 'Make React App',
+            completed: false
+          }
+        ]}/>
       </div>
     );
   }

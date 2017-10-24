@@ -3,10 +3,18 @@ import TodoItem from './TodoItem';
 
 class MainSection extends Component {
   render() {
+    const { todos } = this.props;
+
     return (
       <section className="main">
         <ul className="todo-list">
-          <TodoItem />
+          {todos.map(todo => {
+            return (
+              <TodoItem
+                todo={todo}
+              />
+            );
+          })}
         </ul>
       </section>
     );
