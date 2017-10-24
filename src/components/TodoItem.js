@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class TodoItem extends Component {
   render() {
-    const { todo, toggleCompletedTodo } = this.props;
+    const { todo, toggleCompletedTodo, deleteTodo } = this.props;
 
     return (
       <li className={todo.completed ? 'completed' : undefined}>
@@ -14,7 +14,7 @@ class TodoItem extends Component {
             onChange={() => toggleCompletedTodo(todo.id)}
           />
           <label>{todo.text}</label>
-          <button className="destroy" />
+          <button className="destroy" onClick={() => deleteTodo(todo.id)} />
         </div>
       </li>
     );

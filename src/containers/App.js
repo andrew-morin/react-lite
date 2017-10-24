@@ -37,7 +37,8 @@ export default class App extends Component {
 
   /* Remove an item from the todo list */
   deleteTodo = id => {
-
+    const todos = this.state.todos.filter(todo => todo.id !== id);
+    this.setState({ todos });
   }
 
   /* Toggle completed state of an item in the todo list */
@@ -64,7 +65,8 @@ export default class App extends Component {
         <TodoTextInput addTodo={this.addTodo} />
         <MainSection
           todos={this.state.todos}
-          toggleCompletedTodo={this.toggleCompletedTodo} />
+          toggleCompletedTodo={this.toggleCompletedTodo}
+          deleteTodo={this.deleteTodo} />
       </div>
     );
   }
