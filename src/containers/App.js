@@ -17,13 +17,20 @@ export default class App extends Component {
           text: 'Make React App',
           completed: false
         }
-      ]
+      ],
+      nextId: 2
     }
   }
 
   /* Add an item to the todo list */
   addTodo = text => {
-
+    const { todos, nextId } = this.state;
+    todos.push({
+      id: nextId,
+      completed: false,
+      text: text
+    });
+    this.setState({ todos, nextId: nextId + 1 });
   }
 
   /* Remove an item from the todo list */
@@ -52,7 +59,7 @@ export default class App extends Component {
     return (
       <div className="todoapp">
         <h1>todos</h1>
-        <TodoTextInput />
+        <TodoTextInput addTodo={this.addTodo} />
         <MainSection
           todos={this.state.todos}
           toggleCompletedTodo={this.toggleCompletedTodo} />

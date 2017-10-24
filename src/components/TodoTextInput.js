@@ -13,6 +13,8 @@ class TodoTextInput extends Component {
   handleSubmit = event => {
     // event.which tells us what key triggered the event
     if (event.which === ENTER_KEY_CODE) {
+      const text = event.target.value.trim();
+      this.props.addTodo(text);
       this.setState({ text: '' });
     }
   }
