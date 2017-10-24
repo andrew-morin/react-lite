@@ -5,6 +5,20 @@ import MainSection from "../components/MainSection";
 export default class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      todos: [
+        {
+          id: 0,
+          text: 'Attend React Workshop',
+          completed: true,
+        },
+        {
+          id: 1,
+          text: 'Make React App',
+          completed: false
+        }
+      ]
+    }
   }
 
   /* Add an item to the todo list */
@@ -28,18 +42,7 @@ export default class App extends Component {
       <div className="todoapp">
         <h1>todos</h1>
         <TodoTextInput />
-        <MainSection todos={[
-          {
-            id: 0,
-            text: 'Attend React Workshop',
-            completed: true,
-          },
-          {
-            id: 1,
-            text: 'Make React App',
-            completed: false
-          }
-        ]}/>
+        <MainSection todos={this.state.todos}/>
       </div>
     );
   }
